@@ -33,7 +33,7 @@ SpyFall Bot — это интерактивная многопользовате
 
 ---
 
-## Установка
+## Использование
 
 ### 1. Клонируйте репозиторий
 ```bash
@@ -54,7 +54,7 @@ venv\Scripts\activate     # Windows
 pip install -r requirements.txt
 ```
 
-### Режим разработки (polling)
+### 4. Режим разработки (polling)
 ```bash
 python bot.py
 ```
