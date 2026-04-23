@@ -111,8 +111,8 @@ async def show_card(callback: CallbackQuery, state: FSMContext):
                 chat_id=callback.message.chat.id,
                 message_id=data["photo_message_id"]
             )
-        except:
-            pass
+        except Exception as e:
+            print(f"не удалось отправить фото: {e}")
     
     photo_message = None
     if not is_spy:
