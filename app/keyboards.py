@@ -8,7 +8,7 @@ def get_mode_keyboard():
 
 def get_players_keyboard():
     buttons = []
-    for i in range(MIN_PLAYERS, MAX_PLAYERS):
+    for i in range(MIN_PLAYERS, MAX_PLAYERS + 1):
         buttons.append([InlineKeyboardButton(text=str(i), callback_data=f"players_{i}")])
     return InlineKeyboardMarkup(inline_keyboard=buttons)
 
