@@ -9,7 +9,7 @@ from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.types import CallbackQuery, FSInputFile
 from app.keyboards import *
-from app.config import BOT_TOKEN, MUSICIANS, FOOTBALLERS, DBG
+from app.config import BOT_TOKEN, MUSICIANS, FOOTBALLERS, DBG, MAX_PLAYERS, MIN_PLAYERS
 
 
 class GameStates(StatesGroup):
