@@ -1,14 +1,17 @@
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from app.config import MAX_PLAYERS, MIN_PLAYERS
+from aiogram.utils.keyboard import InlineKeyboardBuilder
+from app.config import MAX_PLAYERS, MIN_PLAYERS, CATEGORIES
 
 def get_mode_keyboard():
-    buttons = [[InlineKeyboardButton(text="футболисты ⚽️", callback_data="football")],
-               [InlineKeyboardButton(text="музыканты 🎧", callback_data="music")]]
-    return InlineKeyboardMarkup(inline_keyboard=buttons)
+    builder = InlineKeyboardBuilder()
+    for key, cat in CATEGORIES.items():
+        builder.button(text=cat["label"], callback_data=key)
+    builder.adjust(2)
+    return builder.as_markup()
 
 def get_players_keyboard():
     buttons = []
-    for i in range(MIN_PLAYERS, MAX_PLAYERS + 1):
+    for i in range(MIN_PLAYERS, MAX_PLAYERS+1):
         buttons.append([InlineKeyboardButton(text=str(i), callback_data=f"players_{i}")])
     return InlineKeyboardMarkup(inline_keyboard=buttons)
 
