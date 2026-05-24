@@ -9,7 +9,7 @@ from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.types import CallbackQuery, FSInputFile
 from app.keyboards import *
-from app.config import BOT_TOKEN, MUSICIANS, FOOTBALLERS, DBG, MAX_PLAYERS, MIN_PLAYERS
+from app.config import BOT_TOKEN, CATEGORIES, DBG, MAX_PLAYERS, MIN_PLAYERS
 
 
 class GameStates(StatesGroup):
@@ -27,7 +27,8 @@ async def cmd_start(message: types.Message):
         "это игра, где один из игроков - шпион, который не знает секретного человека, "
         "ваша задача - вычислить шпиона, говоря факты об этом персонаже\n\n"
         "/game - для начала игры 🃏\n"
-        "/help - узнать правила 📃\n",
+        "/help - узнать правила 📃\n"
+        "\ndev by @onevtukhoff",
         parse_mode="Markdown"
     )
 
@@ -70,8 +71,7 @@ async def process_players_count(callback: CallbackQuery, state: FSMContext):
     data = await state.get_data()
     mode = data["mode"]
     players_count = int(callback.data.split("_")[1])
-    if mode == "music": normal_item = random.choice(MUSICIANS) 
-    else: normal_item = random.choice(FOOTBALLERS)
+    normal_item = random.choice(CATEGORIES[mode]["items"])
     spy_number = random.randint(1, players_count)
     
     await state.update_data(
@@ -111,8 +111,7 @@ async def show_card(callback: CallbackQuery, state: FSMContext):
                 chat_id=callback.message.chat.id,
                 message_id=data["photo_message_id"]
             )
-        except Exception as e:
-            print(f"не удалось отправить фото: {e}")
+        except Exception as e: print(f"не удалось отправить фото: {e}")
     
     photo_message = None
     if not is_spy:
