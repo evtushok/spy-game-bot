@@ -29,7 +29,7 @@ SpyFall Bot — это интерактивная многопользовате
 ## Требования
 
 - Python 3.8+
-- Токен Telegram Bot API
+- Токен Telegram Bot API (генерация через @BotFather в Telegram командой /newbot)
 
 ---
 
@@ -40,6 +40,7 @@ SpyFall Bot — это интерактивная многопользовате
 git clone https://github.com/evtushok/spy-game-bot.git
 cd spy-game-bot
 ```
+В config.py вставляйте токен в BOT_TOKEN, который вам выдал @BotFather в Telegram
 
 ### 2. Создайте виртуальное окружение
 ```bash
