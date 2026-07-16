@@ -60,10 +60,10 @@ python bot.py
 
 ## Команды бота
 
-- `/start` — Приветственное сообщение
-- `/help` — Подробные правила игры
-- `/game` — Начать игру
+- `/start` - приветственное сообщение
+- `/help` - подробные правила игры
+- `/game` - начать игру
 
 ---
 
-- [aiogram 3.x](https://docs.aiogram.dev/) — Асинхронный фреймворк для Telegram Bot API
+- [aiogram 3.x](https://docs.aiogram.dev/) - асинхронный фреймворк для Telegram Bot API
